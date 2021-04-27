@@ -5,6 +5,7 @@ import java.math.BigDecimal;
 import javax.persistence.EntityManager;
 
 import br.com.alura.dao.ProdutoDao;
+import br.com.alura.modelo.Categoria;
 import br.com.alura.modelo.Produto;
 import br.com.alura.util.JPAUtil;
 
@@ -14,7 +15,7 @@ public class CadastroDeProduto {
 
 		EntityManager entityManager = JPAUtil.getEntityManager();
 		
-		Produto celular = new Produto("Zenfone 5", "Cor preta", new BigDecimal(1000));
+		Produto celular = new Produto("Zenfone 5", "Cor preta", new BigDecimal(1000), Categoria.CELULARES);
 		
 		ProdutoDao produtoDao = new ProdutoDao(entityManager);
 		
