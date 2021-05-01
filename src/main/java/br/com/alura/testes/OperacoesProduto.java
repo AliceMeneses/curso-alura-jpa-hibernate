@@ -20,6 +20,34 @@ public class OperacoesProduto {
 		buscarProduto();
 		
 		buscarTodosProdutos();
+		
+		buscarProdutoPorNome("Zenfone 5");
+		
+		buscarProdutoPorNomeDaCategoria("CELULARES");
+	}
+	
+	private static void buscarProdutoPorNomeDaCategoria(String nome) {
+		
+		EntityManager entityManager = JPAUtil.getEntityManager();
+		
+		ProdutoDao produtoDao = new ProdutoDao(entityManager);
+		
+		List<Produto> produtos = produtoDao.buscarPorNomeDaCategoria(nome);
+		
+		produtos.forEach(System.out::println);
+	}
+	
+	private static void buscarProdutoPorNome(String nome) {
+		
+		
+		EntityManager entityManager = JPAUtil.getEntityManager();
+		
+		ProdutoDao produtoDao = new ProdutoDao(entityManager);
+		
+		List<Produto> produtos = produtoDao.buscarPorNome(nome);
+		
+		produtos.forEach(System.out::println);
+		
 	}
 	
 	private static void buscarTodosProdutos() {
