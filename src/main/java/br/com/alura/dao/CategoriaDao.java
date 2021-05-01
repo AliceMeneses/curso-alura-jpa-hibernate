@@ -22,7 +22,7 @@ public class CategoriaDao {
 		this.entityManager.merge(categoria);
 	}
 	
-	public void deletar(Categoria categoria) {
+	public void remover(Categoria categoria) {
 		categoria = this.entityManager.merge(categoria);
 		this.entityManager.remove(categoria);
 	}
