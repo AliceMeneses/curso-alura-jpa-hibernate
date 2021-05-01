@@ -2,6 +2,7 @@ package br.com.alura.modelo;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -85,6 +86,14 @@ public class Produto {
 
 	public void setCategoria(Categoria categoria) {
 		this.categoria = categoria;
+	}
+	
+	@Override
+	public String toString() {
+		
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+		
+		return String.format("Nome: %s| Descrição: %s| Preço: %.2f| Data de Cadastro: %s", this.nome, this.descricao, this.preco, this.dataCadastro.format(formatter));
 	}
 
 }
