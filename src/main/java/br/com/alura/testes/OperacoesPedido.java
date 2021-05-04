@@ -21,8 +21,20 @@ public class OperacoesPedido {
 		
 		populaBancoDeDados();
 		cadastrarPedido();
+		calcularValorTotalDePedidos();
 	}
 	
+	private static void calcularValorTotalDePedidos() {
+		
+		EntityManager entityManager = JPAUtil.getEntityManager();
+		
+		PedidoDao pedidoDao = new PedidoDao(entityManager);
+
+		BigDecimal valorTotal = pedidoDao.valorTotalVendido();
+		
+		System.out.println("Valor total de pedidos: " + valorTotal);
+	}
+
 	private static void cadastrarPedido() {
 		
 		EntityManager entityManager = JPAUtil.getEntityManager();
@@ -40,6 +52,7 @@ public class OperacoesPedido {
 		pedidoDao.cadastrarPedido(pedido);
 		
 		entityManager.getTransaction().commit();
+				
 	}
 	
 	private static void populaBancoDeDados() {
