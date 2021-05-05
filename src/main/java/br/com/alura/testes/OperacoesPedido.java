@@ -1,6 +1,7 @@
 package br.com.alura.testes;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 import javax.persistence.EntityManager;
 
@@ -14,6 +15,7 @@ import br.com.alura.modelo.ItemPedido;
 import br.com.alura.modelo.Pedido;
 import br.com.alura.modelo.Produto;
 import br.com.alura.util.JPAUtil;
+import br.com.alura.vo.RelatorioDeVendasVo;
 
 public class OperacoesPedido {
 
@@ -22,6 +24,18 @@ public class OperacoesPedido {
 		populaBancoDeDados();
 		cadastrarPedido();
 		calcularValorTotalDePedidos();
+		relatorioVendas();
+	}
+	
+	private static void relatorioVendas() {
+		
+		EntityManager entityManager = JPAUtil.getEntityManager();
+		
+		PedidoDao pedidoDao = new PedidoDao(entityManager);
+		
+		List<RelatorioDeVendasVo> relatorioDeVendas = pedidoDao.relatorioVendas();
+		
+		relatorioDeVendas.forEach(System.out::println);
 	}
 	
 	private static void calcularValorTotalDePedidos() {
