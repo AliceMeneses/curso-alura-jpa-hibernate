@@ -41,4 +41,9 @@ public class PedidoDao {
 		return entityManager.createQuery(jpql, RelatorioDeVendasVo.class)
 				.getResultList();
 	}
+	
+	public Pedido buscarPorId(Long id) {
+		
+		return entityManager.find(Pedido.class, id);
+	}
 }
