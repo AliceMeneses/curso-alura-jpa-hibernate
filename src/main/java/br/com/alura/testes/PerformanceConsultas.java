@@ -30,6 +30,12 @@ public class PerformanceConsultas {
 		System.out.println("Data do pedido: " + pedido.getData());
 		System.out.println("Cliente: " + pedido.getCliente().getNome());
 		System.out.println("Quantidade de itens no pedido: " + pedido.getItens().size());
+		
+		pedido = pedidoDao.buscarPedidoComCliente(1l);
+		
+		entityManager.close();
+		
+		System.out.println(pedido.getCliente().getNome());
 
 	}
 	
