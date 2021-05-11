@@ -1,6 +1,7 @@
 package br.com.alura.testes;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -26,7 +27,19 @@ public class OperacoesProduto {
 		buscarProdutoPorNomeDaCategoria("CELULARES");
 		
 		buscarPrecoDoProdutoPorNome("Zenfone 5");
+	
+		buscarProdutoComCriteria("Zenfone 5", null, null);
 		
+	}
+	
+	private static void buscarProdutoComCriteria(String nome, LocalDate dataCadatrada, BigDecimal preco) {
+		
+		EntityManager entityManager = JPAUtil.getEntityManager();
+		ProdutoDao produtoDao = new ProdutoDao(entityManager);
+		
+		List<Produto> produtos = produtoDao.buscarProduto(nome, dataCadatrada, preco);
+		
+		produtos.forEach(System.out::println);
 	}
 	
 	private static void buscarPrecoDoProdutoPorNome(String nome) {
