@@ -47,7 +47,7 @@ public class PerformanceConsultas {
 		ClienteDao clienteDao = new ClienteDao(entityManager);
 		PedidoDao pedidoDao = new PedidoDao(entityManager);
 
-		Categoria celulares = new Categoria("CELULARES");
+		Categoria celulares = new Categoria("CELULARES", "Eletrônicos");
 
 		Produto celular = new Produto("Zenfone 5", "Cor preta", new BigDecimal(1000), celulares);
 

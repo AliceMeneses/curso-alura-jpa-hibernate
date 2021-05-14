@@ -101,7 +101,7 @@ public class OperacoesProduto {
 	private static void cadastrarProduto() {
 		EntityManager entityManager = JPAUtil.getEntityManager();
 
-		Categoria celulares = new Categoria("CELULARES");
+		Categoria celulares = new Categoria("CELULARES", "Eletrônicos");
 
 		Produto celular = new Produto("Zenfone 5", "Cor preta", new BigDecimal(1000), celulares);
 

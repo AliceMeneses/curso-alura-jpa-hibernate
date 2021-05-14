@@ -76,7 +76,7 @@ public class OperacoesPedido {
 		CategoriaDao categoriaDao = new CategoriaDao(entityManager);
 		ClienteDao clienteDao = new ClienteDao(entityManager);
 
-		Categoria celulares = new Categoria("CELULARES");
+		Categoria celulares = new Categoria("CELULARES", "Eletrônicos");
 
 		Produto celular = new Produto("Zenfone 5", "Cor preta", new BigDecimal(1000), celulares);
 
